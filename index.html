@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026 SKL & MD Apply AI 송년회 RSVP</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0a0c10;
+      --bg-surface: #141822;
+      --bg-card: rgba(23, 28, 40, 0.85);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-focus: #f59e0b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent-gold: #f59e0b;
+      --accent-gold-hover: #d97706;
+      --accent-glow: rgba(245, 158, 11, 0.18);
+      --font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(245, 158, 11, 0.08) 0%, transparent 45%),
+        radial-gradient(circle at 85% 85%, rgba(99, 102, 241, 0.06) 0%, transparent 45%);
+      color: var(--text-main);
+      font-family: var(--font-family);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2.5rem 1rem;
+      line-height: 1.5;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 580px;
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.35rem 0.9rem;
+      background: rgba(245, 158, 11, 0.12);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      color: var(--accent-gold);
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 0.85rem;
+    }
+
+    .title {
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.6rem;
+    }
+
+    .info-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      margin-top: 1.2rem;
+      font-size: 0.875rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: left;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .info-label {
+      color: var(--text-muted);
+      min-width: 45px;
+      font-weight: 500;
+    }
+
+    .info-val {
+      color: #e2e8f0;
+      font-weight: 500;
+    }
+
+    .info-tag {
+      font-size: 0.75rem;
+      color: var(--accent-gold);
+      background: rgba(245, 158, 11, 0.15);
+      padding: 0.1rem 0.45rem;
+      border-radius: 4px;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #cbd5e1;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-label .required {
+      color: var(--accent-gold);
+      margin-left: 0.2rem;
+    }
+
+    .radio-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.6rem;
+    }
+
+    .radio-card {
+      position: relative;
+    }
+
+    .radio-card input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .radio-label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1rem;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #94a3b8;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      user-select: none;
+    }
+
+    .radio-card input[type="radio"]:hover + .radio-label {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .radio-card input[type="radio"]:checked + .radio-label {
+      background: rgba(245, 158, 11, 0.12);
+      border-color: var(--accent-gold);
+      color: #fff;
+      font-weight: 600;
+      box-shadow: 0 0 15px var(--accent-glow);
+    }
+
+    .input-text, .input-textarea {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 0.75rem 1rem;
+      color: #fff;
+      font-family: inherit;
+      font-size: 0.925rem;
+      transition: all 0.2s;
+    }
+
+    .input-text:focus, .input-textarea:focus {
+      outline: none;
+      border-color: var(--accent-gold);
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.15);
+    }
+
+    .input-text::placeholder, .input-textarea::placeholder {
+      color: #64748b;
+    }
+
+    .input-textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .notice-box {
+      margin-top: 0.5rem;
+      font-size: 0.8rem;
+      color: #fbbf24;
+      line-height: 1.45;
+      background: rgba(245, 158, 11, 0.08);
+      border-left: 3px solid var(--accent-gold);
+      padding: 0.55rem 0.8rem;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 0.95rem;
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      color: #0b0f19;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-top: 1.25rem;
+      box-shadow: 0 4px 15px rgba(245, 158, 11, 0.25);
+    }
+
+    .btn-submit:hover:not(:disabled) {
+      filter: brightness(1.1);
+      box-shadow: 0 6px 20px rgba(245, 158, 11, 0.35);
+      transform: translateY(-1px);
+    }
+
+    .btn-submit:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* Modal */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+      z-index: 1000;
+    }
+
+    .modal-backdrop.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-card {
+      background: #171d2b;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 18px;
+      max-width: 420px;
+      width: 100%;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      transform: scale(0.95);
+      transition: transform 0.2s ease;
+    }
+
+    .modal-backdrop.show .modal-card {
+      transform: scale(1);
+    }
+
+    .modal-icon {
+      width: 52px;
+      height: 52px;
+      background: rgba(245, 158, 11, 0.15);
+      color: var(--accent-gold);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .modal-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+
+    .modal-desc {
+      font-size: 0.875rem;
+      color: #94a3b8;
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+    }
+
+    .modal-btn {
+      width: 100%;
+      padding: 0.75rem;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      color: #fff;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .modal-btn:hover {
+      background: rgba(255, 255, 255, 0.12);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header">
+      <div class="badge">Year-End Celebration Night</div>
+      <h1 class="title">2026 SKL & MD Apply AI 송년회</h1>
+      
+      <div class="info-box">
+        <div class="info-item">
+          <span class="info-label">일시</span>
+          <span class="info-val">2026.12.16 (수) 18:00</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">장소</span>
+          <span class="info-val">미정 <span class="info-tag">확정되는 대로 별도 안내</span></span>
+        </div>
+      </div>
+    </div>
+
+    <form id="rsvpForm">
+      <!-- 1. 소속 선택 -->
+      <div class="form-group">
+        <label class="form-label">소속<span class="required">*</span></label>
+        <div class="radio-grid">
+          <div class="radio-card">
+            <input type="radio" id="skl" name="company" value="Skelterlabs" required>
+            <label for="skl" class="radio-label">Skelterlabs</label>
+          </div>
+          <div class="radio-card">
+            <input type="radio" id="md" name="company" value="MD Apply AI" required>
+            <label for="md" class="radio-label">MD Apply AI</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. 성명 기재 -->
+      <div class="form-group">
+        <label for="employeeName" class="form-label">성명<span class="required">*</span></label>
+        <input type="text" id="employeeName" class="input-text" placeholder="성명을 입력해 주세요" required>
+      </div>
+
+      <!-- 3. 참석 여부 -->
+      <div class="form-group">
+        <label class="form-label">참석 여부<span class="required">*</span></label>
+        <div class="radio-grid">
+          <div class="radio-card">
+            <input type="radio" id="attending" name="attendance" value="참석" required>
+            <label for="attending" class="radio-label">참석</label>
+          </div>
+          <div class="radio-card">
+            <input type="radio" id="absent" name="attendance" value="불참" required>
+            <label for="absent" class="radio-label">불참</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. 도착 예정 시간 (직접 기재) -->
+      <div class="form-group" id="arrivalTimeGroup">
+        <label for="arrivalTime" class="form-label">도착 예정 시간<span class="required" id="arrivalReqStar">*</span></label>
+        <input type="text" id="arrivalTime" class="input-text" placeholder="예: 17시 45분경, 18:00 정시 등">
+        <div class="notice-box">
+          ※ 송년회 시작시간은 18:00 입니다. 최대한 행사 시작 15분전까지 도착해주시길 바랍니다.
+        </div>
+      </div>
+
+      <!-- 5. 차량 소지 및 주차 여부 -->
+      <div class="form-group" id="transportGroup">
+        <label class="form-label">차량 소지 및 주차 여부<span class="required" id="transportReqStar">*</span></label>
+        <div class="radio-grid">
+          <div class="radio-card">
+            <input type="radio" id="car" name="transport" value="자차 이용">
+            <label for="car" class="radio-label">자차 이용</label>
+          </div>
+          <div class="radio-card">
+            <input type="radio" id="transit" name="transport" value="대중교통 이용">
+            <label for="transit" class="radio-label">대중교통 이용</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. 남기는 말 -->
+      <div class="form-group">
+        <label for="notes" class="form-label">기타 전달사항 (식이 알레르기, 비고 등)</label>
+        <textarea id="notes" class="input-textarea" placeholder="식단 관련 요청사항이나 전달할 내용이 있다면 기재해 주세요."></textarea>
+      </div>
+
+      <button type="submit" id="submitBtn" class="btn-submit">RSVP 제출하기</button>
+    </form>
+  </div>
+
+  <!-- 완료 안내 모달 -->
+  <div id="successModal" class="modal-backdrop">
+    <div class="modal-card">
+      <div class="modal-icon">✓</div>
+      <h3 class="modal-title">응답이 등록되었습니다</h3>
+      <p id="modalDesc" class="modal-desc">
+        송년회 참석 응답이 정상적으로 기록되었습니다.<br>장소 확정 시 다시 안내드리겠습니다.
+      </p>
+      <button type="button" class="modal-btn" onclick="closeModal()">확인</button>
+    </div>
+  </div>
+
+  <script>
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxUJ9jrLmPeY1x6JsMhA9jw5uVbOkvsQlLeUO52coxb2sQrgNlYyA6lBYU_VI2v1eKc/exec";
+
+    const form = document.getElementById('rsvpForm');
+    const attendingRadio = document.getElementById('attending');
+    const absentRadio = document.getElementById('absent');
+    const arrivalTimeGroup = document.getElementById('arrivalTimeGroup');
+    const transportGroup = document.getElementById('transportGroup');
+    const arrivalTimeInput = document.getElementById('arrivalTime');
+    const transportInputs = document.querySelectorAll('input[name="transport"]');
+    const arrivalReqStar = document.getElementById('arrivalReqStar');
+    const transportReqStar = document.getElementById('transportReqStar');
+    const submitBtn = document.getElementById('submitBtn');
+    const successModal = document.getElementById('successModal');
+    const modalDesc = document.getElementById('modalDesc');
+
+    // 참석/불참 선택에 따른 UI 처리 (불참 시 필드 숨김 및 필수 해제)
+    function updateAttendanceUI() {
+      if (absentRadio.checked) {
+        arrivalTimeGroup.style.display = 'none';
+        transportGroup.style.display = 'none';
+        arrivalTimeInput.removeAttribute('required');
+        arrivalTimeInput.value = '';
+        transportInputs.forEach(i => {
+          i.removeAttribute('required');
+          i.checked = false;
+        });
+      } else {
+        arrivalTimeGroup.style.display = 'block';
+        transportGroup.style.display = 'block';
+        arrivalTimeInput.setAttribute('required', 'true');
+        transportInputs.forEach(i => i.setAttribute('required', 'true'));
+      }
+    }
+
+    attendingRadio.addEventListener('change', updateAttendanceUI);
+    absentRadio.addEventListener('change', updateAttendanceUI);
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const attendanceVal = document.querySelector('input[name="attendance"]:checked')?.value;
+      const payload = {
+        company: document.querySelector('input[name="company"]:checked')?.value,
+        name: document.getElementById('employeeName').value.trim(),
+        attendance: attendanceVal,
+        arrivalTime: attendanceVal === '참석' ? arrivalTimeInput.value.trim() : '-',
+        transport: attendanceVal === '참석' ? (document.querySelector('input[name="transport"]:checked')?.value || '-') : '-',
+        notes: document.getElementById('notes').value.trim() || '-'
+      };
+
+      submitBtn.disabled = true;
+      submitBtn.innerText = "제출 중...";
+
+      try {
+        await fetch(GOOGLE_SCRIPT_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "text/plain;charset=utf-8"
+          },
+          body: JSON.stringify(payload)
+        });
+
+        if (attendanceVal === '참석') {
+          modalDesc.innerHTML = `<strong>${payload.name}</strong> 님의 참석 응답이 정상 기록되었습니다.<br>상세 장소 확정 시 빠르게 안내해 드리겠습니다.`;
+        } else {
+          modalDesc.innerHTML = `<strong>${payload.name}</strong> 님의 불참 응답이 접수되었습니다.<br>아쉽지만 다음 기회에 함께해요!`;
+        }
+
+        successModal.classList.add('show');
+        form.reset();
+        updateAttendanceUI();
+
+      } catch (err) {
+        alert("응답 제출 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.");
+        console.error("Submission Error:", err);
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerText = "RSVP 제출하기";
+      }
+    });
+
+    function closeModal() {
+      successModal.classList.remove('show');
+    }
+  </script>
+</body>
+</html>
